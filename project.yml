@@ -27,7 +27,7 @@ targets:
       - target: LibrusWatch
         embed: true
     settings:
-      PRODUCT_BUNDLE_IDENTIFIER: com.alowyy.libruswatch
+      PRODUCT_BUNDLE_IDENTIFIER: com.alowyy1.librawatch
       INFOPLIST_FILE: iOS/LibrusApp/Info.plist
       ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
       INFOPLIST_KEY_UILaunchStoryboardName: LaunchScreen
@@ -46,9 +46,9 @@ targets:
       path: iOS/LibrusWatch/Info.plist
       properties:
         WKApplication: true
-        WKCompanionAppBundleIdentifier: com.alowyy.libruswatch
+        WKCompanionAppBundleIdentifier: com.alowyy1.librawatch
     settings:
-      PRODUCT_BUNDLE_IDENTIFIER: com.alowyy.libruswatch.watchkitapp
+      PRODUCT_BUNDLE_IDENTIFIER: com.alowyy1.librawatch.watchkitapp
       INFOPLIST_FILE: iOS/LibrusWatch/Info.plist
       ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
       GENERATE_INFOPLIST_FILE: NO
