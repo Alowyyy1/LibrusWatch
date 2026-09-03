@@ -51,6 +51,7 @@ jobs:
           APP_PLIST="build/Payload/LibrusApp.app/Info.plist"
           if [ -f "$APP_PLIST" ]; then
             plutil -replace CFBundleDisplayName -string "Librus Sync" "$APP_PLIST" || true
+            plutil -replace UILaunchStoryboardName -string "LaunchScreen" "$APP_PLIST" || true
           fi
           WATCH_PLIST="build/Payload/LibrusApp.app/Watch/LibrusWatch.app/Info.plist"
           if [ -f "$WATCH_PLIST" ]; then
