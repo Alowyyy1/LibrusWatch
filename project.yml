@@ -31,7 +31,7 @@ targets:
       INFOPLIST_FILE: iOS/LibrusApp/Info.plist
 
   LibrusWatch:
-    type: application.watchapp2
+    type: application
     platform: watchOS
     deploymentTarget: "10.0"
     sources:
@@ -47,8 +47,6 @@ targets:
     settings:
       PRODUCT_BUNDLE_IDENTIFIER: com.alowyy.libruswatch.watchkitapp
       INFOPLIST_FILE: iOS/LibrusWatch/Info.plist
-      GENERATE_INFOPLIST_KEY_WKCompanionAppBundleIdentifier: com.alowyy.libruswatch
-      GENERATE_INFOPLIST_KEY_WKApplication: YES
 
   LibrusComplicationExtension:
     type: app-extension
@@ -58,5 +56,8 @@ targets:
       - path: iOS/LibrusWatch/Complications
       - path: iOS/LibrusWatch/Services/OfflineStorage.swift
       - path: iOS/Shared
+    info:
+      path: iOS/LibrusWatch/Complications/Info.plist
     settings:
       PRODUCT_BUNDLE_IDENTIFIER: com.alowyy.libruswatch.watchkitapp.complication
+      INFOPLIST_FILE: iOS/LibrusWatch/Complications/Info.plist
