@@ -48,6 +48,12 @@ jobs:
         run: |
           mkdir -p build/Payload
           cp -r build/LibrusApp.xcarchive/Products/Applications/LibrusApp.app build/Payload/
+          WATCH_PLIST="build/Payload/LibrusApp.app/Watch/LibrusWatch.app/Info.plist"
+          if [ -f "$WATCH_PLIST" ]; then
+            plutil -replace WKWatchKitApp -bool YES "$WATCH_PLIST" || true
+            plutil -replace WKApplication -bool YES "$WATCH_PLIST" || true
+            plutil -replace WKCompanionAppBundleIdentifier -string com.alowyy.libruswatch "$WATCH_PLIST" || true
+          fi
           cd build
           zip -r LibrusWatch.ipa Payload
           cd ..

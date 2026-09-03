@@ -41,12 +41,17 @@ targets:
       - path: iOS/Shared
     info:
       path: iOS/LibrusWatch/Info.plist
+      properties:
+        WKWatchKitApp: true
+        WKApplication: true
+        WKCompanionAppBundleIdentifier: com.alowyy.libruswatch
     dependencies:
       - target: LibrusComplicationExtension
         embed: true
     settings:
       PRODUCT_BUNDLE_IDENTIFIER: com.alowyy.libruswatch.watchkitapp
       INFOPLIST_FILE: iOS/LibrusWatch/Info.plist
+      GENERATE_INFOPLIST_FILE: NO
 
   LibrusComplicationExtension:
     type: app-extension
@@ -58,6 +63,10 @@ targets:
       - path: iOS/Shared
     info:
       path: iOS/LibrusWatch/Complications/Info.plist
+      properties:
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
     settings:
       PRODUCT_BUNDLE_IDENTIFIER: com.alowyy.libruswatch.watchkitapp.complication
       INFOPLIST_FILE: iOS/LibrusWatch/Complications/Info.plist
+      GENERATE_INFOPLIST_FILE: NO
