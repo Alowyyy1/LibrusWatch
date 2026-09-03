@@ -57,7 +57,7 @@ jobs:
           if [ -f "$WATCH_PLIST" ]; then
             plutil -replace CFBundleDisplayName -string "Librus Sync" "$WATCH_PLIST" || true
             plutil -replace WKApplication -bool YES "$WATCH_PLIST" || true
-            plutil -replace WKCompanionAppBundleIdentifier -string com.alowyy1.librawatch "$WATCH_PLIST" || true
+            plutil -replace WKCompanionAppBundleIdentifier -string com.alowyy1.librussync "$WATCH_PLIST" || true
           fi
           cd build
           zip -r LibrusWatch.ipa Payload
