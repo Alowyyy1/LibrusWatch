@@ -44,7 +44,6 @@ targets:
     info:
       path: iOS/LibrusWatch/Info.plist
       properties:
-        WKWatchKitApp: true
         WKApplication: true
         WKCompanionAppBundleIdentifier: com.alowyy.libruswatch
     dependencies:
