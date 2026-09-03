@@ -1,0 +1,29 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: librus-watch-backend
+    restart: unless-stopped
+    volumes:
+      - ./data:/app/data
+    environment:
+      - DATABASE_URL=sqlite:///./data/librus_watch.db
+      - ENCRYPTION_KEY=${ENCRYPTION_KEY:-change-me-to-a-secure-random-32-byte-key}
+      - JWT_SECRET=${JWT_SECRET:-change-me-to-a-secure-jwt-secret}
+    expose:
+      - "8000"
+
+  caddy:
+    image: caddy:2.7-alpine
+    container_name: librus-watch-caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./caddy_data:/data
+      - ./caddy_config:/config
+    depends_on:
+      - backend

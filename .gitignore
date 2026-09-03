@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+
+# Database & local secrets
+*.db
+*.sqlite
+*.sqlite3
+data/
+.env
+caddy_data/
+caddy_config/
+
+# Xcode & Apple
+*.xcodeproj
+*.xcworkspace
+xcuserdata/
+*.xcarchive
+*.ipa
+DerivedData/
+.DS_Store
+
+# IDEs
+.idea/
+.vscode/

@@ -1,0 +1,13 @@
+# Replace yourdomain.com with your actual registered domain / subdomain
+# e.g.: librus.mydomain.com
+{$DOMAIN:localhost} {
+    encode gzip zstd
+
+    # Reverse proxy all requests to backend FastAPI container
+    reverse_proxy backend:8000 {
+        header_up Host {host}
+        header_up X-Real-IP {remote_host}
+        header_up X-Forwarded-For {remote_host}
+        header_up X-Forwarded-Proto {scheme}
+    }
+}

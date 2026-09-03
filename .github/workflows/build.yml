@@ -1,0 +1,54 @@
+name: Build LibrusWatch IPA
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build iOS & watchOS IPA
+    runs-on: macos-14
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Select Xcode Version
+        run: sudo xcode-select -s /Applications/Xcode_15.4.app || true
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Generate Xcode Project
+        run: xcodegen generate
+
+      - name: Build Archive (iOS + Watch)
+        run: |
+          xcodebuild archive \
+            -project LibrusWatch.xcodeproj \
+            -scheme LibrusApp \
+            -configuration Release \
+            -destination "generic/platform=iOS" \
+            -archivePath build/LibrusApp.xcarchive \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            AD_HOC_CODE_SIGNING_ALLOWED=YES
+
+      - name: Package into IPA (SideStore / AltStore / TrollStore compatible)
+        run: |
+          mkdir -p build/Payload
+          cp -r build/LibrusApp.xcarchive/Products/Applications/LibrusApp.app build/Payload/
+          cd build
+          zip -r LibrusWatch.ipa Payload
+          cd ..
+
+      - name: Upload IPA Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: LibrusWatch-IPA
+          path: build/LibrusWatch.ipa
+          retention-days: 14
