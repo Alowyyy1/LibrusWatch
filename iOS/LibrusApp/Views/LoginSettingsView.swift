@@ -94,7 +94,7 @@ struct LoginSettingsView: View {
                     }
                 }
             }
-            .navigationTitle("Librus Watch")
+            .navigationTitle("Librus Sync")
             .alert(isPresented: $showAlert) {
                 Alert(title: Text("Powiadomienie"), message: Text(alertMessage ?? ""), dismissButton: .default(Text("OK")))
             }

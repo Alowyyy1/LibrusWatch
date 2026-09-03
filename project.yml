@@ -29,6 +29,7 @@ targets:
     settings:
       PRODUCT_BUNDLE_IDENTIFIER: com.alowyy.libruswatch
       INFOPLIST_FILE: iOS/LibrusApp/Info.plist
+      ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
 
   LibrusWatch:
     type: application
@@ -38,6 +39,7 @@ targets:
       - path: iOS/LibrusWatch/Views
       - path: iOS/LibrusWatch/Services
       - path: iOS/LibrusWatch/LibrusWatchApp.swift
+      - path: iOS/LibrusWatch/Assets.xcassets
       - path: iOS/Shared
     info:
       path: iOS/LibrusWatch/Info.plist
@@ -51,6 +53,7 @@ targets:
     settings:
       PRODUCT_BUNDLE_IDENTIFIER: com.alowyy.libruswatch.watchkitapp
       INFOPLIST_FILE: iOS/LibrusWatch/Info.plist
+      ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
       GENERATE_INFOPLIST_FILE: NO
 
   LibrusComplicationExtension:
