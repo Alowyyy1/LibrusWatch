@@ -122,9 +122,9 @@ struct WatchScheduleView: View {
     }
 
     private func selectCurrentWeekday(days: [DaySchedule]) {
-        let todayStr = DateFormatter().apply {
-            $0.dateFormat = "yyyy-MM-dd"
-        }.string(from: Date())
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let todayStr = formatter.string(from: Date())
 
         if let idx = days.firstIndex(where: { $0.dateStr == todayStr }) {
             selectedDayIndex = idx
@@ -134,12 +134,5 @@ struct WatchScheduleView: View {
             let mappedIdx = max(0, min(days.count - 1, weekday - 2))
             selectedDayIndex = mappedIdx
         }
-    }
-}
-
-private extension DateFormatter {
-    func apply(block: (DateFormatter) -> Void) -> DateFormatter {
-        block(self)
-        return self
     }
 }

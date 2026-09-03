@@ -1,7 +1,7 @@
 name: LibrusWatch
 options:
   bundleIdPrefix: com.alowyy
-  xcodeVersion: "15.0"
+  xcodeVersion: "16.0"
   deploymentTarget:
     iOS: "16.0"
     watchOS: "10.0"
